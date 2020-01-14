@@ -58,6 +58,13 @@ print(result)
 - `a<-10`
 
   > 변수에 값을 할당해주는 방법
+#### 변수
+
+- 알파벳, 숫자, _(언더스코어), .(마침표)
+- -(하이픈)은 사용할 수 없다.
+- 첫 글자는 알파벳 또는 .
+-  .으로 시작한다면 . 뒤에는 숫자가 올 수 없다
+
 
 - `#(주석처리)`
 
@@ -452,4 +459,58 @@ c1[5,]<-c("yu",NA,NA,NA,NA)
 # R 프로그래밍
 
 - R의 함수를 Java에서 실행한다?!
+
 - `rm(list=ls())`
+
+  > 변수 값을 저장해두는 Global Environment를 clear하는 명령어
+
+#### 조건문 이용하기
+
+```R
+f1 <- function(a){
+  result <- NULL;
+  if(a%%2 == 0){
+    result = "even";
+  }else{
+    result = "odd";
+  }
+  return(result);
+}
+
+me.f2 <- function(n){
+  result <- 0;
+  for(i in c(1:n)){
+    print(i);
+    result <- result + i;
+  }
+  return(result);
+}
+```
+
+```R
+#n:1 국가별 평균 날씨를 Vector로 리턴한다.
+#n:2 분기별 평균 날씨를 Vector로 리턴한다. 
+#단, 2개 모두 컬럼 명칭을 정확히 셋팅해서 리턴한다.
+
+re <- function(n){
+  #날짜 데이터?
+  result<-0;
+  w <- data.frame(nation=c("ko","jp","ch"),
+                  Q1=c(30,20,20),
+                  Q2=c(31,18,19),
+                  Q3=c(28,18,12),
+                  Q4=c(22,16,20),
+                  stringsAsFactors = FALSE);  
+   
+  if(n == 1){
+    result <- rowMeans(w[,-1]);
+      #colMeans와 달리 rowMeans의 결과값은 컬럼을 포함하지 않는다.
+    names(result)<- c("ko","jp","ch")
+      #그래서 이름 추가해줌
+  }
+  if(n == 2){
+    result<- colMeans((w[,-1]));
+  }
+    return(result);
+  }
+```
