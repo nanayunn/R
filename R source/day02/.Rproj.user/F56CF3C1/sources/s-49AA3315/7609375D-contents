@@ -1,0 +1,29 @@
+r1 <- function(x,y){
+  result <- x / y;
+  return(result);
+}
+r2 <- funtion(){
+  result <-c(11:15);
+  names(result)<-c("a","b","c","d","e");
+  return(result);
+}
+r3<- function(n){
+  y <- c(2015,2016,2017,2018,2019,2020);
+  d <- c(900,1000,1500,2000,1500,1900);
+  result <-data.frame(year=y,data=d);
+  return(result)
+}
+r4<-function(){
+  i<- c("id01","id02","id03","id04","id05");
+  n<- c("춘배","복숭아","이클립스","말차라떼","순두부");
+  p<- c("pwd01","pwd02","pwd03","pwd04","pwd05");
+  
+  result <-data.frame(id = i,name = n,pwd = p)
+  return(result)
+}
+r5<-function(){
+  library(ggplot2)
+  jpeg(filename = "r4.jeg",width = 800,height = 600,quality = 100)
+  print(plot(c(1:10),type = "l"));
+  dev.off();
+}

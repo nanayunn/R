@@ -1,0 +1,7 @@
+r1 <- function(){
+  result <- c(10.3,89.2);
+  return(result)
+}
+r2 <- function(n){
+  
+}
